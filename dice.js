@@ -1,7 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
-
+var path = require('path');
 
 
 http.createServer(function (req, response) {
@@ -30,7 +30,7 @@ http.createServer(function (req, response) {
 //读取文件并返回response
 function readFileAndResponse(pathname,response){
     //判断文件是否存在
-    fs.readFile(pathname.substr(1),'utf8',function(err,data){
+    fs.readFile(path.join(__dirname,pathname),'utf8',function(err,data){
         //文件不存在或读取错误返回404，并打印page not found
         if(err){
             response.writeHead(404);
