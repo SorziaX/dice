@@ -239,11 +239,15 @@ div.card_list_row
 /*dice.php*/
 .span_dx
 {
+	float: left;
+	width: auto;
     color:#649880;
 }
 
 .span_tag
 {
+	float: left;
+	width: auto;
     color:Silver;
 }
 #div_dice_info
@@ -650,29 +654,55 @@ input.input_info[readonly]{
 	height:100px;
 }
 
-span.span_bold{
+.line .span_bold{
+	font-size: 20px;
+	line-height: 30px;
 	font-weight:bold;
+	background:#21293b;
+	border-radius:4px;
+	text-align: center;
+	width: auto;
+	height: 30px;
+	float: left;
+	padding: 0 12px 0 12px;
+	margin-left: 10px;
+	margin-top: 3px;
 }
 
-span.span_red{
+.large_line .span_bold{
+	font-size: 38px;
+	line-height: 50px;
+	font-weight:bold;
+	background: #21293b;
+	border-radius:4px;
+	text-align: center;
+	width: auto;
+	height: 50px;
+	float: left;
+	padding: 0 15px 0 15px;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+
+div.span_red{
 	color:red;
 }
-span.span_green{
+div.span_green{
 	color:green;
 }
-span.span_gold{
+div.span_gold{
 	color:orange;
 }
-span.span_blue{
+div.span_blue{
 	color:blue;
 }
-span.span_green{
+div.span_green{
 	color:green;
 }
-span.span_black{
+div.span_black{
 	color:black;
 }
-span.span_purple{
+div.span_purple{
 	color:purple;
 }
 
@@ -684,4 +714,26 @@ span.span_purple{
 #button_log_analyze{
 	width:150px;
 	height:50px;
+}
+
+.large_line{
+	font-size: 25px;
+	height : 60px;
+	line-height : 60px;
+}
+
+.clear{
+	clear: both;
+}
+
+.line{
+	font-size: 16px;
+	height : 40px;
+	line-height : 40px;
+}
+
+.action{
+	margin-left:10px;
+	color:#444444;
+	float: left;
 }

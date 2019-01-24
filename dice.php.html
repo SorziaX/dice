@@ -72,7 +72,7 @@
                   <button id="button_5" class="button_dice btn btn-success">1d3</button>
             </div>
     </div> 
-    
+    <!--
      <div class="row card_list_row">
         <div class="col-xs-2">
              <button id="button_6" class="button_dice btn btn-info">COC</button>
@@ -82,6 +82,7 @@
              <button id="button_7" class="button_dice btn btn-info">COCx5</button>
         </div>
     </div>
+    -->
     
     <br>
      <div class="row card_list_row">
@@ -189,7 +190,7 @@ function blank(num){
 }
 
     //Prefix for private coc game
-    let PREFIX = "ACX_";
+    let PREFIX = "ACX1_";
     let IP = "http://167.179.79.243:8989";
 
     function showResult(result){
@@ -208,15 +209,21 @@ function blank(num){
                 line = line.replace("<p>","");
                 line = line.replace("</p>","");
 
+                if(filtedList.length == 0){
+                    line = "<div class=\"clear\"></div><div class=\"large_line\">" + line + "</div>";
+                }else{
+                    line = "<div class=\"clear\"></div><div class=\"line\">" + line + "</div>";
+                }
+
                 filtedList.push(line);
-                data += ("<p>" + line + "</p>");
+                data += line;
             }
         }
         
 
         //FOR COC
-        data = data.replace(/<co>/g,"<span class=\"span_gold span_bold\">");
-        data = data.replace(/<\/co>/g,"</span>");
+        data = data.replace(/<co>/g,"</div><div class=\"span_gold span_bold\">");
+        data = data.replace(/<\/co>/g,"</div>");
         
         //FOR DOUBLE CROSS
         data = data.replace(/<dx>/g,"<span class=\"span_dx\">");
@@ -226,20 +233,20 @@ function blank(num){
 
         //data = data.replace(/COC属性/g,"COC属性<br>"+blank(20));
         
-        data = data.replace(/<coc0>/g,blank(1)+"<span class=\"span_green span_bold\">");
-        data = data.replace(/<\/coc0>/g,"</span>"+blank(2));
+        data = data.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
+        data = data.replace(/<\/coc0>/g,"</div>"+blank(2));
 
-        data = data.replace(/<coc1>/g,blank(1)+"<span class=\"span_blue \">");
-        data = data.replace(/<\/coc1>/g,"</span>"+blank(2));
+        data = data.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue \">");
+        data = data.replace(/<\/coc1>/g,"</div>"+blank(2));
 
-        data = data.replace(/<coc2>/g,blank(1)+"<span class=\"span_red span_bold\">");
-        data = data.replace(/<\/coc2>/g,"</span>"+blank(2));
+        data = data.replace(/<coc2>/g,blank(1)+"</div><div class=\"span_red span_bold\">");
+        data = data.replace(/<\/coc2>/g,"</div>"+blank(2));
 
-        data = data.replace(/<coc3>/g,blank(1)+"<span class=\"span_gold span_bold\">");
-        data = data.replace(/<\/coc3>/g,"</span>"+blank(2));
+        data = data.replace(/<coc3>/g,blank(1)+"</div><div class=\"span_gold span_bold\">");
+        data = data.replace(/<\/coc3>/g,"</div>"+blank(2));
         
         // Shorten IP and make IP/TIME grey
-        data = data.replace(reTag,"<span class=\"span_tag\"> $1 </span>");
+        data = data.replace(reTag,"<div class=\"span_tag\"> $1 </div><div class=\"action\">");
         
         $("#div_dice_result").html(data);
     }
@@ -331,7 +338,7 @@ function getName(){
 var defaultDiceSize = 100;//COC
 
 $(document).ready(function () {
-    setInterval(pullResult, 8000);
+    //setInterval(pullResult, 8000);
     pullResult();
    
     $("#button_roll").click(function (e) {
