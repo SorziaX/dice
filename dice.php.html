@@ -190,6 +190,7 @@ function blank(num){
 
     //Prefix for private coc game
     let PREFIX = "ACX_";
+    let IP = "http://167.179.79.243:8989";
 
     function showResult(result){
         clearMsg();
@@ -249,7 +250,7 @@ function blank(num){
     //
 
     function sendRequestToAsChar(diceJsonString){
-        var targetURL = "http://localhost:8989";
+        var targetURL = "http://167.179.79.243:8989";
         var url = "https://fengyu.moe/coc/diceArena.php";
         var body = { url: url, data: diceJsonString };
         var params = "?url=" + url + "&data=" + diceJsonString;
