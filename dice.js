@@ -13,6 +13,8 @@ http.createServer(function (req, response) {
     response.end(data);
     */
 
+    console.log("access");
+
     //var hostname = req.headers.host;
     //获取pathname
     var pathname = url.parse(req.url).pathname;
