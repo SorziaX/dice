@@ -214,12 +214,13 @@ function blank(num){
                 if(filtedList.length == 0){
                     line = "<div class=\"clear\"></div><div class=\"large_line\">" + line + "</div><div class=\"clear\"></div></div>";
                 }else{
-                    line = "<div class=\"clear\"></div><div class=\"line\">" + line + "</div></div>";
+                    line = "<div class=\"clear\"></div><div class=\"line\">" + line + "</div><div class=\"clear\"></div></div>";
                 }
 
                 // Shorten IP and make IP/TIME grey
                 line = line.replace(reTag,"<div class=\"span_tag\"> $1 </div><div class=\"action\">");
                 line = line.replace("test","");
+                line = line.replace("COC =","COC =</div><div class=\"clear\"></div><div class=\"normal\">");
 
                 //FOR COC
                 line = line.replace("<co>","</div><div class=\"span_gold span_bold\">");
@@ -231,17 +232,20 @@ function blank(num){
                 line = line.replace(/<\/dx>/g,"</div><div class=\"name\">");
 
                 //FOR COC Characteristic
-                line = line.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
-                line = line.replace(/<\/coc0>/g,"</div><div class=\"name\">");
 
-                line = line.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue \">");
-                line = line.replace(/<\/coc1>/g,"</div><div class=\"name\">");
+                //line = line.replace("<coc1>","<coc1><div class=\"clear\"></div>");
+
+                line = line.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
+                line = line.replace(/<\/coc0>/g,"</div><div class=\"name normal\">");
+
+                line = line.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue span_bold\">");
+                line = line.replace(/<\/coc1>/g,"</div><div class=\"name normal\">");
 
                 line = line.replace(/<coc2>/g,blank(1)+"</div><div class=\"span_red span_bold\">");
-                line = line.replace(/<\/coc2>/g,"</div><div class=\"name\">");
+                line = line.replace(/<\/coc2>/g,"</div><div class=\"name normal\">");
 
                 line = line.replace(/<coc3>/g,blank(1)+"</div><div class=\"span_gold span_bold\">");
-                line = line.replace(/<\/coc3>/g,"</div><div class=\"name\">");
+                line = line.replace(/<\/coc3>/g,"</div><div class=\"name normal\">");
 
                 console.log(line);
 
@@ -257,7 +261,7 @@ function blank(num){
         var normals = document.getElementsByClassName("normal");
         for(var index in normals){
             var normal = normals[index];
-            if(normal.innerHTML == ""){
+            if(normal.innerHTML == "" || normal.innerHTML == " "){
                 normal.style.display = "none";
             }
         }

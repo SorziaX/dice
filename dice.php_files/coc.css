@@ -658,7 +658,7 @@ div.span_gold{
 	color:orange;
 }
 div.span_blue{
-	color:blue;
+	color:cyan;
 }
 div.span_green{
 	color:green;
@@ -697,8 +697,9 @@ div.span_purple{
 
 .line{
 	font-size: 16px;
-	height : 40px;
-	line-height : 40px;
+	height : auto;
+	line-height : 30px;
+	padding-bottom: 10px;
 }
 
 .large_line .span_tag
