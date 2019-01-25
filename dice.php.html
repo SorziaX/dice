@@ -212,36 +212,36 @@ function blank(num){
                 console.log(line);
 
                 if(filtedList.length == 0){
-                    line = "<div class=\"clear\"></div><div class=\"large_line\">" + line + "<div class=\"clear\"></div></div>";
-
-                    //line = line.replace("<co>",":</div><div class=\"clear\"></div><div class=\"span_gold span_bold\">");
+                    line = "<div class=\"clear\"></div><div class=\"large_line\">" + line + "</div><div class=\"clear\"></div></div>";
                 }else{
                     line = "<div class=\"clear\"></div><div class=\"line\">" + line + "</div></div>";
                 }
 
                 // Shorten IP and make IP/TIME grey
                 line = line.replace(reTag,"<div class=\"span_tag\"> $1 </div><div class=\"action\">");
+                line = line.replace("test","");
 
                 //FOR COC
+                line = line.replace("<co>","</div><div class=\"span_gold span_bold\">");
                 line = line.replace(/<co>/g,"</div><div class=\"span_gold span_bold\">");
                 line = line.replace(/<\/co>/g,"</div><div class=\"normal\">");
                 
                 //FOR DOUBLE CROSS
-                line = line.replace(/<dx>/g,"<div class=\"span_dx normal\">");
-                line = line.replace(/<\/dx>/g,"</div>");
+                line = line.replace(/<dx>/g,"</div><div class=\"span_dx normal\">");
+                line = line.replace(/<\/dx>/g,"</div><div class=\"name\">");
 
                 //FOR COC Characteristic
                 line = line.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
-                line = line.replace(/<\/coc0>/g,"</div>"+blank(2));
+                line = line.replace(/<\/coc0>/g,"</div><div class=\"name\">");
 
                 line = line.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue \">");
-                line = line.replace(/<\/coc1>/g,"</div>"+blank(2));
+                line = line.replace(/<\/coc1>/g,"</div><div class=\"name\">");
 
                 line = line.replace(/<coc2>/g,blank(1)+"</div><div class=\"span_red span_bold\">");
-                line = line.replace(/<\/coc2>/g,"</div>"+blank(2));
+                line = line.replace(/<\/coc2>/g,"</div><div class=\"name\">");
 
                 line = line.replace(/<coc3>/g,blank(1)+"</div><div class=\"span_gold span_bold\">");
-                line = line.replace(/<\/coc3>/g,"</div>"+blank(2));
+                line = line.replace(/<\/coc3>/g,"</div><div class=\"name\">");
 
                 console.log(line);
 
