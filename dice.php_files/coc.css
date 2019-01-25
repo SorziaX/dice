@@ -692,14 +692,19 @@ div.span_purple{
 	border-bottom-width: 3px;
 	border-bottom-style:dotted;
 	padding-bottom: 20px;
-	margin-bottom: 15px;
 }
 
 .line{
 	font-size: 16px;
 	height : auto;
 	line-height : 30px;
-	padding-bottom: 20px;
+	padding: 8px 8px 8px 8px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+
+	border:solid #edece9 1px;
+	background: #ffffff;
+	border-radius:4px;
 }
 
 .large_line .span_tag
@@ -730,6 +735,7 @@ div.span_purple{
 	text-align: center;
 	width: 150px;
 	padding: 0 12px 0 12px;
+	display: none;
 }
 
 .large_line .action{
