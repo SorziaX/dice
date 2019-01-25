@@ -703,7 +703,7 @@ div.span_purple{
 	margin-bottom: 15px;
 
 	border:solid #edece9 1px;
-	background: #ffffff;
+	background: #fcfcfc;
 	border-radius:4px;
 }
 
@@ -757,7 +757,6 @@ div.span_purple{
 	line-height : 30px;
 	margin-top: 3px;
 	margin-right:10px;
-	background: #ffd4d4;
 	color:#444444;
 	float: left;
 	border-radius:4px;
