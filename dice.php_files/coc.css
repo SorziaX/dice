@@ -261,7 +261,7 @@ div.card_list_row
 #div_dice_result
 {
     width:100%;
-    padding-left:100px;
+    padding-left:30px;
     padding-right:30px;
     min-height:600px;
 
@@ -692,7 +692,6 @@ div.span_purple{
 	border-bottom-width: 3px;
 	border-bottom-style:dotted;
 	margin-bottom: 15px;
-	padding-bottom: 20px;
 }
 
 .line{
@@ -713,6 +712,7 @@ div.span_purple{
 	border-radius:4px;
 	width: auto;
 	padding: 0 12px 0 12px;
+	display: none;
 }
 
 .line .span_tag
@@ -728,9 +728,11 @@ div.span_purple{
 	text-align: center;
 	width: 150px;
 	padding: 0 12px 0 12px;
+	display: none;
 }
 
 .large_line .action{
+	font-size: 20px;
 	height: 50px;
 	line-height : 50px;
 	margin-top: 3px;
@@ -768,6 +770,7 @@ div.span_purple{
 	float: left;
 	padding: 0 18px 0 18px;
 	margin-top: 3px;
+	margin-right:10px;
 }
 
 .line .span_bold{
@@ -782,4 +785,35 @@ div.span_purple{
 	float: left;
 	padding: 0 12px 0 12px;
 	margin-top: 3px;
+	margin-right:10px;
+}
+
+.large_line .normal{
+	height: 50px;
+	line-height : 50px;
+	margin-top: 3px;
+	margin-right:10px;
+	background: #ffd4d4;
+	color:#444444;
+	float: left;
+	border-radius:4px;
+	width: auto;
+	padding: 0 12px 0 12px;
+}
+
+.line .normal{
+	height: 30px;
+	line-height : 30px;
+	margin-top: 3px;
+	margin-right:10px;
+	background: #ffd4d4;
+	color:#444444;
+	float: left;
+	border-radius:4px;
+	width: auto;
+	padding: 0 12px 0 12px;
+}
+
+.next_line{
+	float: none !important;
 }

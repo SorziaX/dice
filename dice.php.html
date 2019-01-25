@@ -203,53 +203,64 @@ function blank(num){
         
         for(index in list){
             var line = list[index];
-            console.log(line);
 
             if(line.indexOf(PREFIX) != -1){
                 line = line.replace(PREFIX,"");
-                line = line.replace("<p>","");
-                line = line.replace("</p>","");
+                line = line.replace(/<p>/g,"");
+                line = line.replace(/<\/p>/g,"");
+
+                console.log(line);
 
                 if(filtedList.length == 0){
                     line = "<div class=\"clear\"></div><div class=\"large_line\">" + line + "<div class=\"clear\"></div></div>";
+
+                    //line = line.replace("<co>",":</div><div class=\"clear\"></div><div class=\"span_gold span_bold\">");
                 }else{
-                    line = "<div class=\"clear\"></div><div class=\"line\">" + line + "</div>";
+                    line = "<div class=\"clear\"></div><div class=\"line\">" + line + "</div></div>";
                 }
+
+                // Shorten IP and make IP/TIME grey
+                line = line.replace(reTag,"<div class=\"span_tag\"> $1 </div><div class=\"action\">");
+
+                //FOR COC
+                line = line.replace(/<co>/g,"</div><div class=\"span_gold span_bold\">");
+                line = line.replace(/<\/co>/g,"</div><div class=\"normal\">");
+                
+                //FOR DOUBLE CROSS
+                line = line.replace(/<dx>/g,"<div class=\"span_dx normal\">");
+                line = line.replace(/<\/dx>/g,"</div>");
+
+                //FOR COC Characteristic
+                line = line.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
+                line = line.replace(/<\/coc0>/g,"</div>"+blank(2));
+
+                line = line.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue \">");
+                line = line.replace(/<\/coc1>/g,"</div>"+blank(2));
+
+                line = line.replace(/<coc2>/g,blank(1)+"</div><div class=\"span_red span_bold\">");
+                line = line.replace(/<\/coc2>/g,"</div>"+blank(2));
+
+                line = line.replace(/<coc3>/g,blank(1)+"</div><div class=\"span_gold span_bold\">");
+                line = line.replace(/<\/coc3>/g,"</div>"+blank(2));
+
+                console.log(line);
 
                 filtedList.push(line);
                 data += line;
             }
         }
         
-
-        //FOR COC
-        data = data.replace(/<co>/g,"</div><div class=\"span_gold span_bold\">");
-        data = data.replace(/<\/co>/g,"</div>");
-        
-        //FOR DOUBLE CROSS
-        data = data.replace(/<dx>/g,"<span class=\"span_dx\">");
-        data = data.replace(/<\/dx>/g,"</span>");
-
-        //FOR COC Characteristic
-
-        //data = data.replace(/COC属性/g,"COC属性<br>"+blank(20));
-        
-        data = data.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
-        data = data.replace(/<\/coc0>/g,"</div>"+blank(2));
-
-        data = data.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue \">");
-        data = data.replace(/<\/coc1>/g,"</div>"+blank(2));
-
-        data = data.replace(/<coc2>/g,blank(1)+"</div><div class=\"span_red span_bold\">");
-        data = data.replace(/<\/coc2>/g,"</div>"+blank(2));
-
-        data = data.replace(/<coc3>/g,blank(1)+"</div><div class=\"span_gold span_bold\">");
-        data = data.replace(/<\/coc3>/g,"</div>"+blank(2));
-        
-        // Shorten IP and make IP/TIME grey
-        data = data.replace(reTag,"<div class=\"span_tag\"> $1 </div><div class=\"action\">");
-        
         $("#div_dice_result").html(data);
+
+        
+        //不展示
+        var normals = document.getElementsByClassName("normal");
+        for(var index in normals){
+            var normal = normals[index];
+            if(normal.innerHTML == ""){
+                normal.style.display = "none";
+            }
+        }
     }
 
     //CODE for ajax
