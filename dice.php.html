@@ -72,7 +72,7 @@
                   <button id="button_5" class="button_dice btn btn-success">1d3</button>
             </div>
     </div> 
-    <!--
+    
      <div class="row card_list_row">
         <div class="col-xs-2">
              <button id="button_6" class="button_dice btn btn-info">COC</button>
@@ -82,7 +82,7 @@
              <button id="button_7" class="button_dice btn btn-info">COCx5</button>
         </div>
     </div>
-    -->
+
     
     <br>
      <div class="row card_list_row">
@@ -236,16 +236,16 @@ function blank(num){
                 //line = line.replace("<coc1>","<coc1><div class=\"clear\"></div>");
 
                 line = line.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
-                line = line.replace(/<\/coc0>/g,"</div><div class=\"name normal\">");
+                line = line.replace(/<\/coc0>/g,"</div><div class=\"clear\"></div><div class=\"name normal\">");
 
                 line = line.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue span_bold\">");
-                line = line.replace(/<\/coc1>/g,"</div><div class=\"name normal\">");
+                line = line.replace(/<\/coc1>/g,"</div><div class=\"clear\"></div><div class=\"name normal\">");
 
                 line = line.replace(/<coc2>/g,blank(1)+"</div><div class=\"span_red span_bold\">");
-                line = line.replace(/<\/coc2>/g,"</div><div class=\"name normal\">");
+                line = line.replace(/<\/coc2>/g,"</div><div class=\"clear\"></div><div class=\"name normal\">");
 
                 line = line.replace(/<coc3>/g,blank(1)+"</div><div class=\"span_gold span_bold\">");
-                line = line.replace(/<\/coc3>/g,"</div><div class=\"name normal\">");
+                line = line.replace(/<\/coc3>/g,"</div><div class=\"clear\"></div><div class=\"name normal\">");
 
                 console.log(line);
 
