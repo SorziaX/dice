@@ -220,7 +220,7 @@ function blank(num){
                 // Shorten IP and make IP/TIME grey
                 line = line.replace(reTag,"<div class=\"span_tag\"> $1 </div><div class=\"action\">");
                 line = line.replace("test","");
-                line = line.replace("COC =","COC =</div><div class=\"clear\"></div><div class=\"name normal coc\">");
+                line = line.replace("COC =","COC =</div><div class=\"clear\"></div><div class=\"name normal small\">");
 
                 //FOR COC
                 line = line.replace("<co>","</div><div class=\"span_gold span_bold\">");
@@ -229,23 +229,37 @@ function blank(num){
                 
                 //FOR DOUBLE CROSS
                 line = line.replace(/<dx>/g,"</div><div class=\"span_dx normal\">");
-                line = line.replace(/<\/dx>/g,"</div><div class=\"name\">");
+                line = line.replace(/<\/dx>/g,"</div><div class=\"name small\">");
 
                 //FOR COC Characteristic
 
                 //line = line.replace("<coc1>","<coc1><div class=\"clear\"></div>");
 
-                line = line.replace(/<coc0>/g,blank(1)+"</div><div class=\"span_green span_bold\">");
-                line = line.replace(/<\/coc0>/g,"</div><div class=\"clear\"></div><div class=\"name normal coc\">");
+                if(line.indexOf("COC =") != -1){
+                    line = line.replace(/<coc0>/g,"</div><div class=\"span_green span_bold small\">");
+                    line = line.replace(/<\/coc0>/g,"</div><div class=\"name normal small\">");
 
-                line = line.replace(/<coc1>/g,blank(1)+"</div><div class=\"span_blue span_bold\">");
-                line = line.replace(/<\/coc1>/g,"</div><div class=\"clear\"></div><div class=\"name normal coc\">");
+                    line = line.replace(/<coc1>/g,"</div><div class=\"span_blue span_bold small\">");
+                    line = line.replace(/<\/coc1>/g,"</div><div class=\"name normal small\">");
 
-                line = line.replace(/<coc2>/g,blank(1)+"</div><div class=\"span_red span_bold\">");
-                line = line.replace(/<\/coc2>/g,"</div><div class=\"clear\"></div><div class=\"name normal coc\">");
+                    line = line.replace(/<coc2>/g,"</div><div class=\"span_red span_bold small\">");
+                    line = line.replace(/<\/coc2>/g,"</div><div class=\"name normal small\">");
 
-                line = line.replace(/<coc3>/g,blank(1)+"</div><div class=\"span_gold span_bold\">");
-                line = line.replace(/<\/coc3>/g,"</div><div class=\"clear\"></div><div class=\"name normal coc\">");
+                    line = line.replace(/<coc3>/g,"</div><div class=\"span_gold span_bold small\">");
+                    line = line.replace(/<\/coc3>/g,"</div><div class=\"name normal small \">");
+                }else{
+                    line = line.replace(/<coc0>/g,"</div><div class=\"span_green span_bold\">");
+                    line = line.replace(/<\/coc0>/g,"</div><div class=\"name normal\">");
+
+                    line = line.replace(/<coc1>/g,"</div><div class=\"span_blue span_bold\">");
+                    line = line.replace(/<\/coc1>/g,"</div><div class=\"name normal\">");
+
+                    line = line.replace(/<coc2>/g,"</div><div class=\"span_red span_bold\">");
+                    line = line.replace(/<\/coc2>/g,"</div><div class=\"name normal\">");
+
+                    line = line.replace(/<coc3>/g,"</div><div class=\"span_gold span_bold\">");
+                    line = line.replace(/<\/coc3>/g,"</div><div class=\"name normal \">");
+                }
 
                 console.log(line);
 
